@@ -9,17 +9,17 @@
 <body>
     <main>
         <section>
-            <h1>Simulador Cambio de Divisas</h1>
+            <h1 id="ocultar">Simulador Cambio de Divisas</h1>
 
             <p>Bienvenido! Complete los siguientes datos:</p>
 
             <label for="ingNomb">Nombre:</label>
             <input type="text" id="ingNomb" name="ingNomb" placeholder="Ingrese su nombre">
-            <button id="btnNombre">OK</button>
+            <!-- <button id="btnNombre">OK</button> -->
 
             <label for="ingPes">Pesos:</label>
-            <input type="number" id="ingPes" name="ingPes" placeholder="Ingrese la cantidad de pesos">
-            <button id="btnPesos">OK</button>
+            <input type="text" id="ingPes" name="ingPes" placeholder="Ingrese la cantidad de pesos">
+            <!-- <button id="btnPesos">OK</button> -->
 
             <!-- <label for="ingDol">Dolares:</label>
             <input type="number" id="ingDol" name="ingDol" placeholder="Ingrese la cantidad de dolares">
@@ -27,7 +27,9 @@
 
             <label for="ingCot">Cotización:</label>
             <input type="number" id="ingCot" name="ingCot" placeholder="Ingrese la cotización">
-            <button id="btnCotizacion">OK</button>
+            <!-- <button id="btnCotizacion">OK</button> -->
+
+            <span>Haga <button id="btnConsulta">CLICK ACA</button> para confirmar los datos.</span>
             <br>
             <br>
 
@@ -36,17 +38,21 @@
             <!-- <p id="valueInpDol"></p> -->
             <span id="valueInpCot"></span>
 
-            <p>Haga <button id="btnConsulta">CLICK ACA</button> para realizar el cálculo.</p>
+
+
+            <p>Haga <button id="btnConsulta2">CLICK ACA</button> para realizar el calculo.</p>
+
+            <span id="resultado"></span>
 
 
 
-
+            <!--JQUERY-->
+            <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
             <script src="script.js"></script>
         </section>
 
     </main>
 
-    <!--JQUERY-->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
 </body>
 </html>
