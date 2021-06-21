@@ -9,6 +9,28 @@ $(document).ready(function(){
     let cantidad = 0;
     const consultas = [];
 
+
+    //Declaramos la url que vamos a usar para el GET
+    const URLGET = "https://www.dolarsi.com/api/api.php?type=valoresprincipales"
+    //Agregamos un botón con jQuery
+    $(".botCotiza").prepend('<button id="btn1">Ver otras cotizaciones</button>');
+    //Escuchamos el evento click del botón agregado
+    $("#btn1").click(() => { 
+        $.get(URLGET, function (respuesta, estado) {
+            if(estado === "success"){
+                let misDatos = respuesta;
+                for (const dato of misDatos) {
+                    $(".verCotiza").append(`<div>
+                        <span>Agencia: ${dato.casa.agencia}. </span>
+                        <span>Tipo: ${dato.casa.nombre}. </span>
+                        <span>Compra: ${dato.casa.compra}. </span>
+                        <span>Venta: ${dato.casa.venta}. </span>
+                        </div>`);
+                }  
+            }
+        });
+    });
+
     $("#btnConsulta").click(function(){
         inpNomb = ($("#ingNomb").val());
         console.log(inpNomb);
@@ -119,39 +141,6 @@ $(document).ready(function(){
 
 
 
-        // //Declaramos la url que vamos a usar para el GET
-        // const URLGET = "https://jsonplaceholder.typicode.com/posts"
-        // //Agregamos un botón con jQuery
-        // $("body").prepend('<button id="btn1">GET</button>');
-        // //Escuchamos el evento click del botón agregado
-        // $("#btn1").click(() => { 
-        //     $.get(URLGET, function (respuesta, estado) {
-        //         if(estado === "success"){
-        //             let misDatos = respuesta;
-        //             for (const dato of misDatos) {
-        //             $("body").prepend(`<div>
-        //                                 <h3>${dato.title}</h3>
-        //                                 <p> ${dato.body}</p>
-        //                                 </div>`);
-        //             }  
-        //         }
-        //     });
-        // });
-
-
-
-        const URLJSON = "datos.json";
-        $("body").prepend('<button id="btnjson">JSON</button>');
-        $("#btnjson").click(() => {
-            $.getJSON(URLJSON, function (libre, blue){
-                if(blue === "13.20"){
-                    let misDatos = libre;
-                    for (const dato of misDatos) {
-                        $("body").prepend('<div> <h3> ${dato.libre}</h3> <p> ${dato.blue}</p> </div> ')
-                    }
-                }
-            });
-        });
 
 
 
