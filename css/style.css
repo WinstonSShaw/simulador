@@ -1,0 +1,33 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  } */
+
+  body {
+    background-image: url(../img/mejores-webs-apps-cambio-divisas.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .letra {
+    font-family: "Open Sans", sans-serif;
+  }
+
+  .caja {
+    background-color: #EDEDEC;
+    border-color: black;
+    border-image: none;
+    border-radius: 9px;
+  }
+
+  .caja2 {
+    border-radius: 9px;
+  }
+
+  .cotImportadas {
+    margin: 10px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+
+  }

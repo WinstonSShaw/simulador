@@ -13,14 +13,14 @@ $(document).ready(function(){
     //Declaramos la url que vamos a usar para el GET
     const URLGET = "https://www.dolarsi.com/api/api.php?type=valoresprincipales"
     //Agregamos un botón con jQuery
-    $(".botCotiza").prepend('<button id="btn1">Ver otras cotizaciones</button>');
+    $(".botCotiza").prepend('<button id="btn1" class="caja">Ver otras cotizaciones</button>');
     //Escuchamos el evento click del botón agregado
     $("#btn1").click(() => { 
         $.get(URLGET, function (respuesta, estado) {
             if(estado === "success"){
                 let misDatos = respuesta;
                 for (const dato of misDatos) {
-                    $(".verCotiza").append(`<div>
+                    $(".verCotiza").append(`<div class="cotImportadas">
                         <span>Agencia: ${dato.casa.agencia}. </span>
                         <span>Tipo: ${dato.casa.nombre}. </span>
                         <span>Compra: ${dato.casa.compra}. </span>
@@ -44,7 +44,7 @@ $(document).ready(function(){
 
         $("#valueEntr").append(`<div id="datosCons" style="display:none"><p>Hola ${inpNomb}. Ingreso $${inpPes} a una cotizacion de $ ${inpCot} </p></div>`);
 
-        $("#datosCons").css ({"color": "blue",
+        $("#datosCons").css ({"color": "#od1321",
                                 "font-size": "30px",
                                 "font-family": "Open Sans",
                                 "font-weight": "bold"
@@ -99,7 +99,7 @@ $(document).ready(function(){
 
                         $("#resultado").append(`<h2 id="datosRes" style="display:none">$${inpPes} pesos equivalen a US$${inpDol.toFixed(2)} dolares. Gracias ${inpNomb} por tu consulta. </h2>`);
 
-                         $("#datosRes").css ({"color": "blue",
+                         $("#datosRes").css ({"color": "#od1321",
                          "font-size": "42px",
                          "font-family": "Open Sans",
                          "font-weight": "bold"
