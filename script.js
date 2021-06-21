@@ -1,5 +1,5 @@
 $(document).ready(function(){
-//    var $clickNombre = $("#ingNomb");
+
     var inpNomb = "nada";
     var inpPes = 0;
     var inpCot =0;
@@ -12,24 +12,32 @@ $(document).ready(function(){
     $("#btnConsulta").click(function(){
         inpNomb = ($("#ingNomb").val());
         console.log(inpNomb);
-        $("#valueInpNomb").append("<span>Hola </span>"  + inpNomb + "<span>.</span>");
-
 
         inpPes = ($("#ingPes").val());
         console.log(inpPes);
-        $("#valueInpPes").append('<span>Ingreso $</span>' + inpPes);
 
         inpCot =($("#ingCot").val());
         console.log(inpCot);
-        $("#valueInpPes").append('<span> a una cotización de $</span>' + inpCot);
 
 
+        $("#valueEntr").append(`<div id="datosCons" style="display:none"><p>Hola ${inpNomb}. Ingreso $${inpPes} a una cotizacion de $ ${inpCot} </p></div>`);
 
-        let boton = document.getElementById("btnConsulta2");
-        boton.addEventListener ("click", respClickBoton);
+        $("#datosCons").css ({"color": "blue",
+                                "font-size": "30px",
+                                "font-family": "Open Sans",
+                                "font-weight": "bold"
+                            })
+                        .delay(1000)
+                        .slideDown(5000, function(){
+                            $("#datosCons").css("font-size", "18px")
+                        });
 
 
-        function respClickBoton () {
+        cantidad++;
+        console.log(cantidad);
+
+
+        $("#btnConsulta2").click(function(){
 
 
             class Monedas {
@@ -45,7 +53,7 @@ $(document).ready(function(){
         
                 cantConsultas () {
                 //    cantidad =parseInt(prompt ("Cuantos cotizaciones desea realizar? "));
-                cantidad= 1;  //PRUEBA
+                cantidad= 1;  
                 }
         
                 pedirNombre () {
@@ -65,11 +73,20 @@ $(document).ready(function(){
         
                         let parrafo = document.createElement("p");
         
-                        //parrafo.innerHTML = `<h2>$${inpPes} pesos equivalen a US$${inpDol.toFixed(2)} dolares. Gracias ${inpNomb} por tu consulta. </h2>`;    
-                        //document.body.appendChild (parrafo);
 
-                        $("#resultado").append(`<h2>$${inpPes} pesos equivalen a US$${inpDol.toFixed(2)} dolares. Gracias ${inpNomb} por tu consulta. </h2>`);
-        
+
+                        $("#resultado").append(`<h2 id="datosRes" style="display:none">$${inpPes} pesos equivalen a US$${inpDol.toFixed(2)} dolares. Gracias ${inpNomb} por tu consulta. </h2>`);
+
+                         $("#datosRes").css ({"color": "blue",
+                         "font-size": "42px",
+                         "font-family": "Open Sans",
+                         "font-weight": "bold"
+                                        })
+                                        .delay(1000)
+                                        .slideDown(5000, function(){
+                                             $("#datosRes").css("font-size", "30px")
+                                         });
+                                
                     }
                 }
             }
@@ -91,12 +108,50 @@ $(document).ready(function(){
         //        console.log(consultas);
         //    }
         
-        }
+
+        // var datConsString = JSON.stringify(consultas);
+        // console.log(datConsString + "Datos para json");
+
+        });
 
 
 
 
 
+
+        // //Declaramos la url que vamos a usar para el GET
+        // const URLGET = "https://jsonplaceholder.typicode.com/posts"
+        // //Agregamos un botón con jQuery
+        // $("body").prepend('<button id="btn1">GET</button>');
+        // //Escuchamos el evento click del botón agregado
+        // $("#btn1").click(() => { 
+        //     $.get(URLGET, function (respuesta, estado) {
+        //         if(estado === "success"){
+        //             let misDatos = respuesta;
+        //             for (const dato of misDatos) {
+        //             $("body").prepend(`<div>
+        //                                 <h3>${dato.title}</h3>
+        //                                 <p> ${dato.body}</p>
+        //                                 </div>`);
+        //             }  
+        //         }
+        //     });
+        // });
+
+
+
+        const URLJSON = "datos.json";
+        $("body").prepend('<button id="btnjson">JSON</button>');
+        $("#btnjson").click(() => {
+            $.getJSON(URLJSON, function (libre, blue){
+                if(blue === "13.20"){
+                    let misDatos = libre;
+                    for (const dato of misDatos) {
+                        $("body").prepend('<div> <h3> ${dato.libre}</h3> <p> ${dato.blue}</p> </div> ')
+                    }
+                }
+            });
+        });
 
 
 
