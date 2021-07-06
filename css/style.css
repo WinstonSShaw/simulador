@@ -4,14 +4,31 @@
     box-sizing: border-box;
   } */
 
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
   body {
     background-image: url(../img/mejores-webs-apps-cambio-divisas.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 50px;
+  }
+
+  section input {
+    margin-bottom: 10px;
+  }
+
+  section span {
+    margin-bottom:10px;
+    margin-top: 10px;
   }
 
   .letra {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
   .caja {
@@ -19,6 +36,7 @@
     border-color: black;
     border-image: none;
     border-radius: 9px;
+    font-weight: bold;
   }
 
   .caja2 {
@@ -27,7 +45,15 @@
 
   .cotImportadas {
     margin: 10px;
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
 
   }
+
+.reiniciar {
+  margin-left: 10vw;
+}
+
+.botCotiza {
+  margin-top: 10px;
+}

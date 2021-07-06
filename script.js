@@ -4,6 +4,7 @@ $(document).ready(function(){
     var inpPes = 0;
     var inpCot =0;
     var inpDol = 0;
+    var inpMon = "Dolar";
     console.log(inpNomb + " antes del function");
 
     let cantidad = 0;
@@ -35,14 +36,21 @@ $(document).ready(function(){
         inpNomb = ($("#ingNomb").val());
         console.log(inpNomb);
 
-        inpPes = ($("#ingPes").val());
+        inpPes = parseInt ($("#ingPes").val());
         console.log(inpPes);
 
-        inpCot =($("#ingCot").val());
+        // if (!isNaN (inpPes)){
+        //     console.log ('Es un numero');
+        // };
+
+        inpCot = parseInt ($("#ingCot").val());
         console.log(inpCot);
 
+        inpMon = ($("#ingMon").val());
+        console.log(inpMon);
 
-        $("#valueEntr").append(`<div id="datosCons" style="display:none"><p>Hola ${inpNomb}. Ingreso $${inpPes} a una cotizacion de $ ${inpCot} </p></div>`);
+
+        $("#valueEntr").append(`<div id="datosCons" style="display:none"><p>Hola ${inpNomb}. Ingreso $${inpPes} a una cotizacion de $ ${inpCot} por ${inpMon}</p></div>`);
 
         $("#datosCons").css ({"color": "#od1321",
                                 "font-size": "30px",
@@ -63,11 +71,12 @@ $(document).ready(function(){
 
 
             class Monedas {
-                constructor (nombre, pesos, dolares, cotiza){
+                constructor (nombre, pesos, dolares, cotiza, divisa){
                     this.nombre = nombre;
                     this.pesos = pesos;
                     this.dolares = dolares;
                     this.cotiza = cotiza;
+                    this.divisa = divisa;
                 }
         
         
@@ -89,7 +98,9 @@ $(document).ready(function(){
                         divisas.push(inpCot);
         
                         inpDol = inpPes / inpCot; 
-                        divisas.push(inpDol);                    
+                        divisas.push(inpDol);     
+                        
+                        divisas.push(inpMon);
         
                         consultas.push(divisas);
         
@@ -97,7 +108,7 @@ $(document).ready(function(){
         
 
 
-                        $("#resultado").append(`<h2 id="datosRes" style="display:none">$${inpPes} pesos equivalen a US$${inpDol.toFixed(2)} dolares. Gracias ${inpNomb} por tu consulta. </h2>`);
+                        $("#resultado").append(`<h2 id="datosRes" style="display:none">$${inpPes} pesos equivalen a $${inpDol.toFixed(2)} ${inpMon}. Gracias ${inpNomb} por tu consulta. </h2>`);
 
                          $("#datosRes").css ({"color": "#od1321",
                          "font-size": "42px",
@@ -114,7 +125,7 @@ $(document).ready(function(){
             }
         
         
-            const moneda1 = new Monedas ("Nombre", "0", "0" , "1" );
+            const moneda1 = new Monedas ("Nombre", "0", "0" , "1", "dolar" );
         
             moneda1.cantConsultas();
             moneda1.pedirNombre();
@@ -135,10 +146,6 @@ $(document).ready(function(){
         // console.log(datConsString + "Datos para json");
 
         });
-
-
-
-
 
 
 
